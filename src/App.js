@@ -1,10 +1,13 @@
+import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
 
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/ProjectsPage.js";
 import ContactPage from "./pages/ContactPage";
+import Loader from "./components/ui/Loader";
 
 // Wrapper for page transitions
 function PageWrapper({ children }) {
@@ -20,12 +23,23 @@ function PageWrapper({ children }) {
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 // Animated Routes
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route element={<MainLayout />}>
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
