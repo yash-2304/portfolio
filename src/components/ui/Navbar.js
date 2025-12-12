@@ -9,8 +9,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link
+<div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">        <Link
           to="/"
           className="text-xl font-semibold tracking-tight text-black"
         >

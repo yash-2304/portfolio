@@ -9,8 +9,8 @@ export default function Hero() {
     
 
     
-<section className="pt-20 pb-16 flex flex-col gap-6 text-white">
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-16">
+<section className="pt-20 pb-12 px-4 sm:px-6 flex flex-col gap-6 text-white">
+        <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-16">
 
         {/* LEFT TEXT CONTENT */}
         <motion.div
@@ -19,7 +19,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex-1"
         >
-          <h1 className="text-5xl md:text-6xl font-semibold text-black leading-tight tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-semibold text-black leading-tight tracking-tight">
             Hi, I’m <span className="text-blue-300 drop-shadow-[0_0_6px_rgba(59,130,246,0.7)]">Yash Prajapati</span>
           </h1>
 
@@ -28,10 +28,10 @@ export default function Hero() {
             Passionate about React, TypeScript, AI integrations, and building scalable web products.
           </p>
 
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
   <a
     href="/projects"
-    className="px-8 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-[#333] transition"
+    className="px-8 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-[#333] transition text-center"
   >
     View My Work →
   </a>
@@ -39,7 +39,7 @@ export default function Hero() {
   <a
     href="/resume.pdf"
     download
-   className="px-8 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-[#333] transition"
+    className="px-8 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-[#333] transition text-center"
   >
     Download Resume
   </a>
