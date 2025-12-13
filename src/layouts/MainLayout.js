@@ -1,28 +1,28 @@
 import Navbar from "../components/ui/Navbar";
 import Footer from "../components/ui/Footer";
 import { Outlet } from "react-router-dom";
+import React from "react";
+import BinaryBackground from "../components/ui/BinaryBackground";
 
 export default function MainLayout() {
   return (
-    <>
-      <Navbar />
+    <div className="relative min-h-screen overflow-hidden">
+      
+      {/* GLOBAL FLOATING BACKGROUND (covers every page) */}
+      
 
-      <main className="pt-24 pb-16 bg-theme text-white">
-        {/* Floating Tech Bubbles Background */}
-        <div className="bubble-bg absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-          {/* Example bubble icons */}
-          <img src="/react-logo.png" className="bubble bubble-1" alt="" />
-          <img src="/js-logo.png" className="bubble bubble-2" alt="" />
-          <img src="/ts-logo.png" className="bubble bubble-3" alt="" />
-          <img src="/node-logo.png" className="bubble bubble-4" alt="" />
-          <img src="/python-logo.png" className="bubble bubble-5" alt="" />
-        </div>
-        <div className="max-w-6xl mx-auto px-6">
-          <Outlet />
-        </div>
-      </main>
+      {/* CONTENT ABOVE THE BACKGROUND */}
+      <div className="relative z-10">
+        <Navbar />
+<BinaryBackground />
+      <main className="relative pt-24 pb-16 bg-theme text-white min-h-screen">
+  <div className="relative z-20 max-w-6xl mx-auto px-6">
+    <Outlet />
+  </div>
+</main>
 
-      <Footer />
-    </>
+        <Footer />
+      </div>
+    </div>
   );
 }

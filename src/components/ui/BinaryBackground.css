@@ -1,0 +1,39 @@
+.binary-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: 5;            /* ABOVE background */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.binary-char {
+  position: absolute;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.30);
+  font-weight: 700;
+  font-family: monospace;
+  animation: floatUp linear infinite;
+  user-select: none;
+}
+
+/* Random positions + timings */
+.binary-char:nth-child(odd) {
+  animation-duration: 14s;
+}
+.binary-char:nth-child(even) {
+  animation-duration: 19s;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh);
+  }
+  100% {
+    transform: translateY(-10vh);
+  }
+}
+
+.binary-char {
+  top: calc(100% * var(--rand-top));
+  left: calc(100% * var(--rand-left));
+}
