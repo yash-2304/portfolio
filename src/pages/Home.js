@@ -15,17 +15,25 @@ export default function Home() {
 
           {/* Project 1 */}
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-500/20 transition hover:-translate-y-1">
-            <h3 className="text-xl font-semibold text-white mb-3">Saayam For All — Open Source</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">AI Math Solver </h3>
             <p className="text-white/60 mb-4">
-              Contributed key frontend enhancements including validation logic, i18n fixes, 
-              UI consistency updates, and component-level improvements.
+              An interactive AI‑powered math solving platform supporting step‑by‑step solutions,
+              equation parsing, and real‑time problem evaluation using custom ML + LLM pipelines.
             </p>
             <a 
-              href="https://github.com/saayam-for-all/webapp" 
+              href="https://ai-math-solver-mocha.vercel.app/"
               target="_blank"
               className="text-blue-400 hover:text-blue-300 transition"
             >
-              View Project →
+              Live Demo →
+            </a>
+            <br />
+            <a 
+              href="https://github.com/yash-2304/ai-math-solver"
+              target="_blank"
+              className="text-blue-400 hover:text-blue-300 transition"
+            >
+              GitHub →
             </a>
           </div>
 

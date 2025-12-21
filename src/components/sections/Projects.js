@@ -4,6 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ------------------- PROJECT DATA ------------------- */
 const projects = [
   {
+    title: "AI Math Solver",
+    description:
+      "An AI-powered math trainer that solves equations, explains steps, and assists with interactive learning using a custom machine learning and LLM pipeline.",
+    features: [
+      "AI-powered step-by-step solving",
+      "Interactive learning interface",
+      "Fast and scalable backend",
+      "Deployed on Vercel"
+    ],
+    tags: ["React", "JavaScript", "Python"],
+    url: "https://ai-math-solver-mocha.vercel.app/"
+  },
+  {
     title: "The News App",
     description:
       "A React-based web application that displays real-time news using the NewsAPI service. Includes category switching, infinite scroll, dynamic routing and API integration.",
