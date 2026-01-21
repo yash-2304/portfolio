@@ -255,7 +255,7 @@ function TechCard({ tech, color }) {
       className="cursor-pointer p-4 bg-white/5 hover:bg-white/10 transition rounded-xl border border-white/10 backdrop-blur-xl"
     >
       <div className="flex items-center gap-3">
-        <img src={tech.icon} className="w-10 h-10" />
+               <img src={tech.icon} alt={tech.name} className="w-10 h-10" />
         <span className="text-white font-medium">{tech.name}</span>
       </div>
 
