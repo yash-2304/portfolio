@@ -225,23 +225,6 @@ export default function ContactPage() {
         </section>
 
       </div>
-      <style jsx global>{`
-@keyframes float {
-  0% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-30px) translateX(20px); }
-  100% { transform: translateY(0px) translateX(0px); }
-}
-@keyframes float2 {
-  0% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(25px) translateX(-25px); }
-  100% { transform: translateY(0px) translateX(0px); }
-}
-@keyframes float3 {
-  0% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-20px) translateX(-15px); }
-  100% { transform: translateY(0px) translateX(0px); }
-}
-`}</style>
     </div>
   );
 }
