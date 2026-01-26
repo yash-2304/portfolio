@@ -3,6 +3,7 @@ import Footer from "../components/ui/Footer";
 import { Outlet } from "react-router-dom";
 import React from "react";
 import BinaryBackground from "../components/ui/BinaryBackground";
+import FeedbackWidget from "../components/ui/FeedbackWidget";
 
 export default function MainLayout() {
   return (
@@ -22,6 +23,7 @@ export default function MainLayout() {
 </main>
 
         <Footer />
+        <FeedbackWidget />
       </div>
     </div>
   );

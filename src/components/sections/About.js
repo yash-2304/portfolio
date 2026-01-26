@@ -39,18 +39,19 @@ export default function About() {
           className="text-lg text-gray-300 leading-relaxed w-full max-w-none"
         >
           I’m a passionate Full Stack Engineer who loves building clean, modern,
-          high performance applications. I focus on creating seamless user experiences
+          high‑performance applications. I focus on creating seamless user experiences
           using React, TypeScript, and scalable backend systems. I enjoy working at the
           intersection of design and engineering crafting software that feels elegant,
           fast, and meaningful.
         </motion.p>
 
-<div className="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-4 sm:gap-y-6 mt-6 justify-items-center">          {techIcons.map((icon, index) => (
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-6 mt-10 justify-items-center">
+          {techIcons.map((icon, index) => (
             <motion.div
-              key={icon}
+              key={index}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.07 }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
               viewport={{ once: true }}
               className="p-5 rounded-2xl bg-white/10 backdrop-blur-md shadow-xl border border-white/10 hover:scale-110 transition-transform w-24 h-24 flex items-center justify-center"
             >

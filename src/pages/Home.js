@@ -62,9 +62,9 @@ export default function Home() {
         <div className="flex justify-center mt-10">
           <a
             href="/projects"
-            className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 text-white font-semibold"
+            className='px-8 py-3 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 text-white font-semibold shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.8)] transition'
           >
-            View All Projects →
+            View All Projects 
           </a>
         </div>
       </section>
