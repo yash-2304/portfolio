@@ -48,9 +48,6 @@ export default function ContactPage() {
     if (!isDesktop) setOpenIndex(openIndex === i ? null : i);
   };
 
-  const [openFrontend, setOpenFrontend] = useState(false);
-  const [openBackend, setOpenBackend] = useState(false);
-  const [openCloud, setOpenCloud] = useState(false);
 
   return (
     <div className="relative overflow-hidden">
@@ -215,10 +212,10 @@ export default function ContactPage() {
             <a href="mailto:pyash7621@gmail.com" className="p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition text-white">
               <FiMail className="text-3xl" />
             </a>
-            <a href="https://www.linkedin.com/in/yash-prajapati-29a423187" target="_blank" className="p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+            <a href="https://www.linkedin.com/in/yash-prajapati-29a423187" target="_blank" rel="noreferrer" className="p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
               <FiLinkedin className="text-3xl text-blue-500" />
             </a>
-            <a href="https://github.com/yash-2304" target="_blank" className="p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+            <a href="https://github.com/yash-2304" target="_blank" rel="noreferrer" className="p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
               <FiGithub className="text-3xl" />
             </a>
           </div>

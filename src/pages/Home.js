@@ -23,6 +23,7 @@ export default function Home() {
             <a 
               href="https://ai-math-solver-mocha.vercel.app/"
               target="_blank"
+              rel="noreferrer"
               className="text-blue-400 hover:text-blue-300 transition"
             >
               Live Demo →
@@ -31,6 +32,7 @@ export default function Home() {
             <a 
               href="https://github.com/yash-2304/ai-math-solver"
               target="_blank"
+              rel="noreferrer"
               className="text-blue-400 hover:text-blue-300 transition"
             >
               GitHub →
@@ -47,6 +49,7 @@ export default function Home() {
             <a 
               href="https://github.com/yash-2304/NewsMonkey-React-master"
               target="_blank"
+              rel="noreferrer"
               className="text-blue-400 hover:text-blue-300 transition"
             >
               View Project →

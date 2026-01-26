@@ -181,6 +181,7 @@ function ProjectModal({ project, onClose }) {
               <a
                 href={project.url}
                 target="_blank"
+                rel="noreferrer"
                 className="text-blue-300 hover:text-blue-100 font-semibold"
               >
                 View Project →
