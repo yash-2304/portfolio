@@ -21,8 +21,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 text-lg text-gray-300 max-w-lg leading-relaxed">
-            A Full Stack Engineer crafting beautiful, high-performance digital experiences.
-            Passionate about React, TypeScript, AI integrations, and building scalable web products.
+            Full-stack developer at a mid-career level specializing in building robust web platforms with React, TypeScript, FastAPI, and Firebase. Delivered a standardized React component library that streamlined UI development by ~30% and improved accessibility, and created Docker-powered CI/CD pipelines with automated checks to ensure reliable deployments. Led integration of secure authentication and real-time data flows, making apps scalable and responsive for both internal and client-facing teams. Aiming to drive innovation and stability in web solutions while boosting delivery speed and user experience.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
