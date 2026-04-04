@@ -4,32 +4,46 @@ import { FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
 export default function ContactPage() {
   const timeline = [
     {
-      year: "2025 — Present",
-      title: "Full Stack Developer · DXC Technology (USA)",
-      details: [
-        "Building React + TypeScript front-end flows with protected routing, complex forms, error boundaries, and accessibility for enterprise dashboards.",
-        "Developing FastAPI microservices with async handlers, JWT authentication, schema-driven API contracts, and structured logging hooks.",
-        "Implemented automated interface checks preventing frontend breakage due to silent backend changes.",
-        "Architected Firestore read/write paths for high‑frequency real-time updates without cost spikes.",
-        "Improved UI performance with React Query caching, request batching, debounced triggers, and route-level code splitting.",
-        "Containerized services and shipped via CI/CD with smoke tests and rollback safeguards.",
-        "Collaborated directly with product & design to identify edge cases early (offline access, retry logic, stale data)."
-      ]
-    },
+  year: "Mar 2026 — Present",
+  title: "Gen AI Engineer · Saayam for All (Volunteer)",
+  details: [
+    "Built Gen AI features using FastAPI and PostgreSQL to improve task-to-volunteer matching efficiency and accuracy",
+    "Designed a multifactor matching system using FastAPI, rate limiting, and debounced triggers to align volunteers based on skills, availability, and context",
+    "Integrated AI APIs such as OpenAI into a FastAPI backend to enable real-time intelligent processing and response generation",
+    "Developed backend workflows for data ingestion, processing, and decision-making, reducing processing latency",
+    "Applied prompt engineering techniques to improve output relevance and contextual understanding for better recommendations",
+    "Collaborated in an Agile open-source environment using Git and GitHub, contributing features and code reviews to improve release speed and code quality"
+  ]
+},
+
     {
-      year: "2021 — 2023",
-      title: "Web Application Developer · Trinary Bits (India)",
-      details: [
-        "Delivered production-grade React + TypeScript apps and handled complete UI architecture, accessibility, and deployments.",
-        "Built a reusable component + hook system reducing UI development time by 30%.",
-        "Rolled out a Firebase‑based authentication and real-time sync system with custom security rules.",
-        "Developed FastAPI microservices with logging, throttling, and versioned endpoints with full OpenAPI documentation.",
-        "Integrated external ML APIs with retry/backoff + queue handling to prevent UI freeze cases.",
-        "Optimized network behavior with Axios interceptors, caching, and deduplication, reducing load times by 20–25%.",
-        "Refactored global Redux state, eliminating stale-state bugs across navigation flows.",
-        "Improved performance using lazy loading, memoization, virtualization, and manual DOM cleanup."
-      ]
-    }
+  year: "Jan 2025 — Mar 2026",
+  title: "Full Stack Developer · DXC Technology",
+  details: [
+    "Built React and TypeScript front-end systems handling routing, protected views, complex forms, accessibility, and cross-browser behavior",
+    "Developed FastAPI services with async handlers, JWT authentication, schema-driven contracts, and logging, ensuring stable API integration",
+    "Implemented automated interface checks to prevent frontend failures caused by backend changes",
+    "Managed Firebase Authentication and Firestore for real-time data and secure session handling with optimized read/write patterns",
+    "Improved UI performance using React Query caching, request batching, debounced triggers, and route-level code splitting",
+    "Containerized services and deployed via CI/CD pipelines with smoke tests and rollback mechanisms",
+    "Collaborated with product and design teams to identify edge cases early such as offline handling, retry logic, and stale data"
+  ]
+},
+    {
+  year: "Jan 2021 — Jul 2023",
+  title: "Web Application Developer · Trinary Bits Technologies",
+  details: [
+    "Built and deployed React and TypeScript web applications with focus on UI architecture, accessibility, and production readiness",
+    "Developed a reusable React component and hook library that reduced UI development time by ~30%",
+    "Implemented Firebase-based architecture (Auth, Hosting, Realtime DB) for scalable user sessions and real-time data sync",
+    "Built FastAPI microservices with logging, rate limiting, and OpenAPI documentation for reliable backend systems",
+    "Integrated external ML APIs with retry/backoff and queue handling to prevent UI freezes and API failures",
+    "Optimized frontend performance using Axios caching, deduplication, and interceptors, reducing load time by ~20–25%",
+    "Refactored global state using Redux to eliminate stale data issues across navigation flows",
+    "Improved performance using lazy loading, memoization, virtualization, and efficient DOM handling",
+    "Collaborated with product teams to define API contracts, UI specs, and documentation reducing rework cycles"
+  ]
+}
   ];
 
   const [openIndex, setOpenIndex] = useState(null);
@@ -62,12 +76,7 @@ export default function ContactPage() {
         <section className="max-w-5xl mx-auto px-6 space-y-6">
           <h2 className="text-4xl font-bold text-white">About Me</h2>
           <p className="text-white/70 leading-relaxed">
-            I’m Yash Prajapati, a Full Stack Engineer with strong experience in React,
-            TypeScript, Node.js, FastAPI, and cloud-native architectures. I specialize in 
-            building clean, scalable UI systems, robust backend microservices, and modern 
-            end‑to‑end application flows. I focus heavily on performance, clean code, 
-            maintainability, and user‑centric design. My work spans enterprise dashboards, 
-            authentication systems, real‑time applications, and backend automation services.
+            Full-stack developer specializing in building robust web platforms using React, TypeScript, FastAPI, and Firebase. Experienced in delivering scalable UI systems, backend services, and CI/CD pipelines that improve performance, reliability, and user experience.
           </p>
         </section>
 

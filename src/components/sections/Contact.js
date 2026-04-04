@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import profileImg from "../../assets/profile.jpg";
 
 export default function Contact() {
   return (
@@ -32,19 +33,13 @@ export default function Contact() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="w-28 h-28 flex items-center justify-center rounded-full bg-white/10 border border-white/20 shadow-lg"
+            className="w-28 h-28 overflow-hidden rounded-full bg-white/10 border border-white/20 shadow-lg"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="1.5"
-              className="w-14 h-14 opacity-80"
-            >
-              <circle cx="12" cy="7" r="4" />
-              <path d="M4 20c1.5-5 14.5-5 16 0" />
-            </svg>
+            <img
+              src={profileImg}
+              alt="Yash Prajapati"
+              className="w-full h-full object-cover rounded-full"
+            />
           </motion.div>
 
           {/* Info Text */}
@@ -80,9 +75,9 @@ export default function Contact() {
           <div>
             <h3 className="text-2xl font-semibold mb-4 border-l-4 border-blue-400 pl-3">Experience</h3>
             <ul className="space-y-3 text-gray-300">
-              <li> DXC Technology – DevOps / Software Engineer</li>
-              <li> Trinary Bits – Developer</li>
-              <li> Freelance Full‑Stack Projects</li>
+             <li>Saayam for All – Gen AI Engineer (Volunteer)</li>
+  <li>DXC Technology – Full Stack Developer</li>
+  <li>Trinary Bits – Web Application Developer</li>
             </ul>
           </div>
 
