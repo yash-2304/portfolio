@@ -40,18 +40,5 @@ const items = Array.from({ length: 40 }).map((_, i) => {
   );
 });
 
-  return (
-    <div
-      className="binary-bg-container"
-      style={{
-        position: "absolute",
-        inset: 0,
-        zIndex: 1,
-        pointerEvents: "none",
-        overflow: "hidden",
-      }}
-    >
-      {items}
-    </div>
-  );
+  return null;
 }
