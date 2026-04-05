@@ -20,8 +20,17 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-300 max-w-lg leading-relaxed">
-Full Stack Developer with 3+ years of experience building scalable web platforms using React, TypeScript, FastAPI, and Firebase. Improved UI development speed by ~30% through a reusable component system and reduced perceived load time by 20–25% via caching, batching, and performance optimizations. Built and deployed containerized services with CI/CD pipelines, improving release reliability and reducing deployment issues by ~40%. Developed secure, real-time systems with JWT and Firebase supporting high-frequency data flows. Recently contributed to AI-driven backend systems improving task matching accuracy and processing efficiency in real-time applications.          </p>
+          <p className="mt-6 text-base text-gray-300 max-w-md md:max-w-lg leading-relaxed">
+            Full Stack Engineer focused on building scalable systems that handle real-world data, high-frequency workflows, and reliable user interactions.
+          </p>
+
+          <p className="mt-4 text-sm text-gray-400 max-w-md md:max-w-lg leading-relaxed">
+            Improved application performance by ~30% and reduced load times by 20–25% through optimized data flow, efficient state handling, and system-level improvements.
+          </p>
+
+          <p className="mt-3 text-sm text-gray-400 max-w-md md:max-w-lg leading-relaxed">
+            Experienced in designing systems that support real-time updates, secure data processing, and consistent performance under production-level workloads.
+          </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
