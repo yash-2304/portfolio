@@ -21,8 +21,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 text-lg text-gray-300 max-w-lg leading-relaxed">
-            Full-stack developer at a mid-career level specializing in building robust web platforms with React, TypeScript, FastAPI, and Firebase. Delivered a standardized React component library that streamlined UI development by ~30% and improved accessibility, and created Docker-powered CI/CD pipelines with automated checks to ensure reliable deployments. Led integration of secure authentication and real-time data flows, making apps scalable and responsive for both internal and client-facing teams. Aiming to drive innovation and stability in web solutions while boosting delivery speed and user experience.
-          </p>
+Full Stack Developer with 3+ years of experience building scalable web platforms using React, TypeScript, FastAPI, and Firebase. Improved UI development speed by ~30% through a reusable component system and reduced perceived load time by 20–25% via caching, batching, and performance optimizations. Built and deployed containerized services with CI/CD pipelines, improving release reliability and reducing deployment issues by ~40%. Developed secure, real-time systems with JWT and Firebase supporting high-frequency data flows. Recently contributed to AI-driven backend systems improving task matching accuracy and processing efficiency in real-time applications.          </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
