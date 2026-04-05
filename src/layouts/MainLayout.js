@@ -2,7 +2,6 @@ import Navbar from "../components/ui/Navbar";
 import Footer from "../components/ui/Footer";
 import { Outlet } from "react-router-dom";
 import React from "react";
-import BinaryBackground from "../components/ui/BinaryBackground";
 import FeedbackWidget from "../components/ui/FeedbackWidget";
 
 export default function MainLayout() {
@@ -15,7 +14,6 @@ export default function MainLayout() {
       {/* CONTENT ABOVE THE BACKGROUND */}
       <div className="relative z-10">
         <Navbar />
-<BinaryBackground />
       <main className="relative pt-24 pb-16 bg-theme text-white min-h-screen">
   <div className="relative z-20 max-w-6xl mx-auto px-6">
     <Outlet />
