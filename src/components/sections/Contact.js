@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import profileImg from "../../assets/profile.jpg";
 
 export default function Contact() {
+  // removed accordion state
+
   return (
     <section className="w-full py-24 bg-gradient-to-b from-[#0f172a] to-[#0a0f1f] text-white relative overflow-hidden">
 
@@ -11,7 +14,7 @@ export default function Contact() {
         <div className="w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[140px]" />
       </div>
 
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6 overflow-x-hidden">
 
         {/* Header */}
         <motion.h2
@@ -65,28 +68,26 @@ export default function Contact() {
 
         {/* Experience & Education */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          layout
+          transition={{ layout: { duration: 0.35, ease: "easeInOut" } }}
           className="mt-16 grid md:grid-cols-2 gap-10"
         >
           {/* Experience */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 border-l-4 border-blue-400 pl-3">Experience</h3>
-            <ul className="space-y-3 text-gray-300">
-             <li>Saayam for All – Gen AI Engineer (Volunteer)</li>
-  <li>DXC Technology – Full Stack Developer</li>
-  <li>Trinary Bits – Web Application Developer</li>
-            </ul>
+            <div className="space-y-2 text-gray-300">
+              <p>Saayam for All — Gen AI Engineer (Volunteer)</p>
+              <p>DXC Technology — Full Stack Developer</p>
+              <p>Trinary Bits — Web Application Developer</p>
+            </div>
           </div>
 
           {/* Education */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 border-l-4 border-blue-400 pl-3">Education</h3>
-            <ul className="space-y-3 text-gray-300">
-              <li> MS Computer Science — CSUCI</li>
-              <li> BS Computer Science — India</li>
+            <ul className="space-y-3 text-gray-300 will-change-transform">
+              <li className="transition-transform duration-300 ease-out hover:translate-x-1"> MS Computer Science — CSUCI</li>
+              <li className="transition-transform duration-300 ease-out hover:translate-x-1"> BS Computer Science — India</li>
             </ul>
           </div>
         </motion.div>

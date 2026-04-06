@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
 
 export default function ContactPage() {
@@ -46,21 +46,7 @@ export default function ContactPage() {
 }
   ];
 
-  const [openIndex, setOpenIndex] = useState(null);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const toggle = (i) => {
-    if (!isDesktop) setOpenIndex(openIndex === i ? null : i);
-  };
+  const [activeItem, setActiveItem] = useState(null);
 
 
   return (
@@ -98,32 +84,16 @@ export default function ContactPage() {
               <div className="absolute -left-3 top-2 w-6 h-6 rounded-full bg-blue-500 shadow-lg shadow-blue-500/40 border border-white/40 transition"></div>
 
               <button
-                onClick={() => !isDesktop && toggle(i)}
+                onClick={() => setActiveItem(item)}
                 className="w-full text-left bg-white/5 backdrop-blur-xl border border-white/10 
                            rounded-xl p-4 flex justify-between items-center hover:bg-white/10 
                            transition cursor-pointer"
               >
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-
-                <span className="text-white text-xl">
-                  {isDesktop ? "" : openIndex === i ? "−" : "+"}
-                </span>
-              </button>
-
-              <div
-                className={`transition-all duration-300 overflow-hidden ${
-                  isDesktop ? "max-h-full mt-4" : openIndex === i ? "max-h-[800px] mt-4" : "max-h-0"
-                }`}
-              >
-                <div className="bg-white/5 backdrop-blur-xl rounded-xl p-4 border border-white/10 
-                                text-white/70 text-sm sm:text-base leading-relaxed">
-                  <ul className="space-y-2">
-                    {item.details.map((d, index) => (
-                      <li key={index}>• {d}</li>
-                    ))}
-                  </ul>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                  <p className="text-white/50 text-sm">{item.year}</p>
                 </div>
-              </div>
+              </button>
 
             </div>
           ))}
@@ -231,6 +201,34 @@ export default function ContactPage() {
         </section>
 
       </div>
+
+      {activeItem && (
+        <div
+          className="fixed top-0 left-0 w-screen h-screen z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          onClick={() => setActiveItem(null)}
+        >
+          <div
+            className="relative w-[90%] max-w-2xl bg-[#0f172a] border border-white/10 rounded-xl p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveItem(null)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-white"
+            >
+              ✕
+            </button>
+
+            <h3 className="text-xl font-semibold mb-2">{activeItem.title}</h3>
+            <p className="text-white/50 mb-4">{activeItem.year}</p>
+
+            <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
+              {activeItem.details.map((d, i) => (
+                <li key={i}>• {d}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

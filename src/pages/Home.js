@@ -4,7 +4,7 @@ import Contact from "../components/sections/Contact";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Hero />
       <About />
       {/* Featured Projects Preview */}
@@ -14,7 +14,7 @@ export default function Home() {
         <div className="flex justify-center">
 
           {/* Project 1 */}
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-500/20 transition hover:-translate-y-1">
+          <div className="bg-white/5 backdrop-blur-xl rounded-xl p-6 shadow-lg hover:shadow-blue-500/20 transition hover:-translate-y-1 border border-white/10">
             <h3 className="text-xl font-semibold text-white mb-3">AI Math Solver </h3>
             <p className="text-white/60 mb-4">
               An interactive AI‑powered math solving platform supporting step‑by‑step solutions,
@@ -31,7 +31,7 @@ export default function Home() {
             >
               GitHub →
             </a>
-            <div className="mt-6 bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)] overflow-hidden">
+            <div className="mt-6 bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)] overflow-visible">
               {/* Fake window header */}
               <div className="flex items-center justify-between px-4 py-2 bg-white/5 border-b border-white/10">
                 <div className="flex gap-2">
@@ -43,8 +43,7 @@ export default function Home() {
                 <div />
               </div>
 
-              {/* iframe */}
-              <div id="ai-solver-embed" className="w-full h-[480px] overflow-x-auto overflow-y-hidden">
+              <div id="ai-solver-embed" className="w-full h-[520px] overflow-x-auto overflow-y-visible pb-6">
                 <iframe
                   src="https://ai-math-solver-mocha.vercel.app/"
                   title="AI Math Solver Demo"
@@ -67,6 +66,6 @@ export default function Home() {
         </div>
       </section>
       <Contact />
-    </>
+    </div>
   );
 }
