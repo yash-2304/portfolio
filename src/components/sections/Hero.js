@@ -15,7 +15,7 @@ export default function Hero() {
         >
           <h1 className="text-4xl sm:text-6xl font-semibold leading-tight tracking-tight">
             Hi, I’m{" "}
-            <span className="text-blue-300 drop-shadow-[0_0_6px_rgba(59,130,246,0.7)]">
+            <span className="typing-name text-blue-300 drop-shadow-[0_0_6px_rgba(59,130,246,0.7)]">
               Yash Prajapati
             </span>
           </h1>

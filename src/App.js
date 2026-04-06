@@ -5,6 +5,7 @@ import Projects from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import "./App.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
