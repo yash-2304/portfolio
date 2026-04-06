@@ -208,12 +208,12 @@ export default function ContactPage() {
           onClick={() => setActiveItem(null)}
         >
           <div
-            className="relative w-[90%] max-w-2xl bg-[#0f172a] border border-white/10 rounded-xl p-6"
+            className="relative w-[90%] max-w-2xl max-h-[80vh] overflow-y-auto bg-[#0f172a] border border-white/10 rounded-xl p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setActiveItem(null)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white"
+              className="absolute top-3 right-3 text-white bg-black/40 rounded-full w-8 h-8 flex items-center justify-center z-50"
             >
               ✕
             </button>
