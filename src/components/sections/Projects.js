@@ -4,6 +4,20 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ------------------- PROJECT DATA ------------------- */
 const projects = [
   {
+    title: "YouTube Shorts Automation Pipeline",
+    description:
+      "End-to-end automation pipeline that downloads videos, generates clips, adds captions using Whisper, and uploads YouTube Shorts using yt-dlp, ffmpeg, and Python scripting.",
+    features: [
+      "Automated video download with yt-dlp",
+      "Clip generation and processing with ffmpeg",
+      "Auto-captioning using Whisper",
+      "Batch pipeline orchestration",
+      "YouTube upload automation"
+    ],
+    tags: ["Python", "API", "Automation"],
+    url: "https://github.com/yash-2304/YT-shorts-Automation-"
+  },
+  {
     title: "AI Math Solver",
     description:
       "An AI-powered math trainer that solves equations, explains steps, and assists with interactive learning using a custom machine learning and LLM pipeline.",
@@ -99,6 +113,7 @@ const techIcons = {
   React: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   JavaScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   API: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg",
+  Automation: "https://cdn.simpleicons.org/githubactions/FFFFFF",
   Web: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   "Machine Learning": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
   Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
