@@ -183,12 +183,17 @@ function ProjectModal({ project, onClose }) {
               {/* Icons */}
               <div className="flex flex-wrap gap-3 mb-6">
                 {project.tags.map((tag) => (
-                  <img
+                  <div
                     key={tag}
-                    src={techIcons[tag]}
-                    alt={tag}
-                    className="w-10 h-10 bg-white/10 p-2 rounded-lg border border-white/20"
-                  />
+                    className="flex items-center gap-2 px-3 py-2 bg-white/10 border border-white/20 rounded-lg backdrop-blur-md hover:bg-white/20 transition"
+                  >
+                    <img
+                      src={techIcons[tag]}
+                      alt={tag}
+                      className="w-5 h-5"
+                    />
+                    <span className="text-sm text-white/90">{tag}</span>
+                  </div>
                 ))}
               </div>
 
