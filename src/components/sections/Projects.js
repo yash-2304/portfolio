@@ -18,6 +18,19 @@ const projects = [
     url: "https://github.com/yash-2304/YT-shorts-Automation-"
   },
   {
+    title: "Roast My Code",
+    description: "Full-stack AI application that analyzes code, generates humorous critiques, and provides structured feedback with optimized code suggestions",
+    features: [
+      "AI-powered code analysis",
+      "Humorous critique generation",
+      "Structured feedback system",
+      "Optimized code suggestions",
+      "Deployed on Vercel"
+    ],
+    tags: ["React", "JavaScript", "Python"],
+    url: "https://roast-my-code-mu.vercel.app/"
+  },
+  {
     title: "AI Math Solver",
     description:
       "An AI-powered math trainer that solves equations, explains steps, and assists with interactive learning using a custom machine learning and LLM pipeline.",
