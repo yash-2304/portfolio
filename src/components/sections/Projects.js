@@ -31,6 +31,19 @@ const projects = [
     url: "https://roast-my-code-mu.vercel.app/"
   },
   {
+    title: "TriggerFlow",
+    description: "Event-driven workflow automation platform that allows users to define triggers, conditions, and actions to automate complex processes in real-time.",
+    features: [
+      "Event-based trigger system",
+      "Condition + action chaining",
+      "Real-time workflow execution",
+      "Interactive flow builder UI",
+      "Deployed on Vercel"
+    ],
+    tags: ["React", "JavaScript", "Web"],
+    url: "https://triggerflow-five.vercel.app/"
+  },
+  {
     title: "AI Math Solver",
     description:
       "An AI-powered math trainer that solves equations, explains steps, and assists with interactive learning using a custom machine learning and LLM pipeline.",

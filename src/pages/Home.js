@@ -21,6 +21,14 @@ export default function Home() {
       github: "https://github.com/yash-2304/roast-my-code",
       embed: "https://roast-my-code-mu.vercel.app/",
       label: "roast-my-code"
+    },
+    {
+      title: "TriggerFlow",
+      desc: "Event-driven workflow automation platform that allows users to define triggers, conditions, and actions to automate complex processes in real-time.",
+      note: "Note: Demo may take a few seconds to load due to Vercel free tier cold starts.",
+      github: "https://github.com/yash-2304/Triggerflow",
+      embed: "https://triggerflow-five.vercel.app/",
+      label: "triggerflow"
     }
   ];
   return (
@@ -63,15 +71,23 @@ export default function Home() {
               GitHub →
             </a>
 
-            <div className="mt-6 bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)] overflow-visible">
-              <div className="flex items-center justify-between px-4 py-2 bg-white/5 border-b border-white/10">
+            <div className="relative mt-6 bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)] overflow-visible">
+              <div className="flex items-center px-4 py-2 bg-white/5 border-b border-white/10">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
                 </div>
-                <span className="text-xs text-gray-400">{projects[index].label}</span>
-                <div />
+                <span className="text-xs text-gray-400 flex-1 text-center">{projects[index].label}</span>
+                <a
+                  href={projects[index].embed}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-black/50 hover:bg-black/70 text-white text-xs px-2 py-1 rounded-md border border-white/20 backdrop-blur-md transition"
+                  title="Open in new tab"
+                >
+                  ⛶
+                </a>
               </div>
 
               <div className="w-full h-[520px] overflow-x-auto overflow-y-visible pb-6">
