@@ -7,6 +7,14 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const projects = [
     {
+      title: "Adversarial Resume Auditor",
+      desc: "An AI-driven resume analysis tool that simulates ATS and LLM evaluation to expose hiring blind spots. It compares multiple scoring perspectives, identifies missing keywords, and delivers structured, actionable insights to improve resume performance in real-world screening systems.",
+      note: "Note: Demo may take a few seconds to load due to Vercel free tier cold starts.",
+      github: "",
+      embed: "https://adversarial-resume-auditor-mx8r.vercel.app/",
+      label: "resume-auditor"
+    },
+    {
       title: "AI Math Solver",
       desc: "An interactive AI‑powered math solving platform supporting step‑by‑step solutions, equation parsing, and real‑time problem evaluation using custom ML + LLM pipelines.",
       note: "Note: Demo may take a few seconds to load due to Vercel free tier cold starts.",
@@ -90,11 +98,11 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="w-full h-[520px] overflow-x-auto overflow-y-visible pb-6">
+              <div className="flex justify-center overflow-x-auto overflow-y-visible pb-6">
                 <iframe
                   src={projects[index].embed}
                   title={projects[index].title}
-                  className="w-[140%] h-[560px] bg-black"
+                  className="w-[1024px] h-[600px] bg-black"
                 />
               </div>
             </div>

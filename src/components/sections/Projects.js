@@ -4,6 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ------------------- PROJECT DATA ------------------- */
 const projects = [
   {
+    title: "Adversarial Resume Auditor",
+    description: "An AI-driven resume analysis tool that simulates ATS and LLM evaluation to expose hiring blind spots. It compares multiple scoring perspectives, identifies missing keywords, and delivers structured, actionable insights to improve resume performance in real-world screening systems.",
+    features: [
+      "ATS + LLM resume scoring simulation",
+      "Multi-model evaluation comparison",
+      "Keyword gap detection",
+      "Structured actionable feedback",
+      "Real-world hiring optimization insights"
+    ],
+    tags: ["React", "JavaScript", "AI"],
+    url: "https://adversarial-resume-auditor-mx8r.vercel.app/"
+  },
+  {
     title: "YouTube Shorts Automation Pipeline",
     description:
       "End-to-end automation pipeline that downloads videos, generates clips, adds captions using Whisper, and uploads YouTube Shorts using yt-dlp, ffmpeg, and Python scripting.",
@@ -152,6 +165,7 @@ const techIcons = {
   Grafana: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
   Flask: "https://cdn.simpleicons.org/flask/FFFFFF",
   "Web App": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  AI: "https://api.iconify.design/mdi/sparkles.svg?color=white",
 };
 
 /* ------------------- MODAL COMPONENT ------------------- */
