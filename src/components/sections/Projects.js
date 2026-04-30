@@ -4,6 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ------------------- PROJECT DATA ------------------- */
 const projects = [
   {
+    title: "Algorithm Gauntlet",
+    description: "Interactive platform to practice and visualize algorithms with real-time feedback, challenges, and performance insights for mastering problem-solving skills.",
+    features: [
+      "Algorithm visualization (BFS, DFS, Dijkstra, A*)",
+      "Real-time comparison and execution",
+      "Custom grid + weighted graphs",
+      "Interactive UI with controls",
+      "Deployed on Vercel"
+    ],
+    tags: ["React", "JavaScript", "Web"],
+    url: "https://algorithm-gauntlet.vercel.app"
+  },
+  {
     title: "Adversarial Resume Auditor",
     description: "An AI-driven resume analysis tool that simulates ATS and LLM evaluation to expose hiring blind spots. It compares multiple scoring perspectives, identifies missing keywords, and delivers structured, actionable insights to improve resume performance in real-world screening systems.",
     features: [

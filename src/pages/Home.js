@@ -7,6 +7,14 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const projects = [
     {
+      title: "Algorithm Gauntlet",
+      desc: "Interactive platform to practice and visualize algorithms with real-time feedback, challenges, and performance insights for mastering problem-solving skills.",
+      note: "Note: Demo may take a few seconds to load due to Vercel free tier cold starts.",
+      github: "https://github.com/yash-2304/Algorithm-Gauntlet",
+      embed: "https://algorithm-gauntlet.vercel.app",
+      label: "algorithm-gauntlet"
+    },
+    {
       title: "Adversarial Resume Auditor",
       desc: "An AI-driven resume analysis tool that simulates ATS and LLM evaluation to expose hiring blind spots. It compares multiple scoring perspectives, identifies missing keywords, and delivers structured, actionable insights to improve resume performance in real-world screening systems.",
       note: "Note: Demo may take a few seconds to load due to Vercel free tier cold starts.",
@@ -98,11 +106,11 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="flex justify-center overflow-x-auto overflow-y-visible pb-6">
+              <div className="flex justify-center overflow-hidden pb-6 px-2 md:px-0">
                 <iframe
                   src={projects[index].embed}
                   title={projects[index].title}
-                  className="w-[1024px] h-[600px] bg-black"
+                  className="w-full max-w-[1024px] h-[60vh] md:h-[600px] bg-black rounded-b-2xl"
                 />
               </div>
             </div>
