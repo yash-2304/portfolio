@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
+import { Analytics } from "@vercel/analytics/react";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +29,26 @@ export default function App() {
 
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
+  }, []);
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    // Force scroll to top on reload + initial mount
+    window.scrollTo(0, 0);
+
+    // Also handle hard reload timing issues
+    const handleLoad = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("load", handleLoad);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
   }, []);
 
   const crtStyle = {
@@ -88,6 +109,7 @@ export default function App() {
           </Route>
         </Routes>
       </div>
+      <Analytics />
     </>
   );
 }
