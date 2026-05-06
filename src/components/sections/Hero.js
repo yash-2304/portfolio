@@ -21,7 +21,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 text-base text-gray-300 max-w-md md:max-w-lg leading-relaxed">
-            Full Stack Engineer focused on building scalable systems that handle real-world data, high-frequency workflows, and reliable user interactions.
+            Full Stack & AI Engineer focused on accelerating product delivery and reliability. I specialize in bridging the gap between complex backend logic and intuitive user experiences to drive measurable business outcomes.
           </p>
 
           <p className="mt-4 text-sm text-gray-400 max-w-md md:max-w-lg leading-relaxed">
