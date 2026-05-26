@@ -14,7 +14,8 @@ const techIcons = [
   "tensorflow",
   "ansible",
   "prometheus",
-  "grafana"
+  "grafana",
+  "genai"
 ];
 
 export default function About() {
@@ -101,6 +102,12 @@ export default function About() {
         'Built dashboards for real-time observability',
         'Visualized metrics for system insights',
         'Improved debugging via data visualization'
+      ] :
+      active === 'genai' ? [
+        'Built LLM-powered features using OpenAI/Gemini APIs',
+        'Designed prompt pipelines for structured outputs',
+        'Integrated AI into real-world web apps (analysis, generation)',
+        'Optimized latency, token usage & response quality'
       ] : []
     );
 
@@ -137,10 +144,11 @@ export default function About() {
   useEffect(() => {
     const lines = [
       'initializing profile...',
-      'role: Full Stack Engineer',
+      'role: Full Stack & AI Engineer',
       'experience: 3+ years building production web apps',
       'stack: React, TypeScript, Node, Python',
-      'specialization: scalable systems & high-performance UI',
+      'ai: LLM apps, prompt engineering, multi-model integrations',
+      'specialization: full-stack systems, LLM integration & high-performance UI',
       'impact: improved performance by ~25% across projects',
       'focus: real-time data, APIs, and clean architecture',
       'status: actively seeking opportunities'
@@ -254,7 +262,11 @@ export default function About() {
                           onClick={() => setActive(active === icon ? null : icon)}
                         >
                           <img
-                            src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`}
+                            src={
+                              icon === 'genai'
+                                ? 'https://cdn-icons-png.flaticon.com/512/4712/4712027.png'
+                                : `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`
+                            }
                             className="w-10 h-10 object-contain"
                             alt={icon}
                           />

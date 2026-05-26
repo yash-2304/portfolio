@@ -1,10 +1,16 @@
 import Hero from "../components/sections/Hero";
 import About from "../components/sections/About";
 import Contact from "../components/sections/Contact";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
+  const topRef = useRef(null);
+  const location = useLocation();
+  const previewRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
   const projects = [
     {
       title: "Algorithm Gauntlet",
@@ -47,8 +53,38 @@ export default function Home() {
       label: "triggerflow"
     }
   ];
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    // double force after render
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, 50);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const el = previewRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.1 }
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div>
+    <div ref={topRef}>
       <Hero />
       <About />
       {/* Featured Projects Preview */}
@@ -106,12 +142,20 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="flex justify-center overflow-hidden pb-6 px-2 md:px-0">
-                <iframe
-                  src={projects[index].embed}
-                  title={projects[index].title}
-                  className="w-full max-w-[1024px] h-[60vh] md:h-[600px] bg-black rounded-b-2xl"
-                />
+              <div ref={previewRef} className="flex justify-center overflow-hidden pb-6 px-2 md:px-0">
+                {isInView ? (
+                  <iframe
+                    src={projects[index].embed}
+                    title={projects[index].title}
+                    loading="lazy"
+                    tabIndex={-1}
+                    className="w-full max-w-[1024px] h-[60vh] md:h-[600px] bg-black rounded-b-2xl"
+                  />
+                ) : (
+                  <div className="w-full max-w-[1024px] h-[60vh] md:h-[600px] bg-black/30 rounded-b-2xl flex items-center justify-center text-white/50">
+                    Loading preview…
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -127,12 +171,12 @@ export default function Home() {
 
         {/* View All Projects Button */}
         <div className="flex justify-center mt-10">
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className='px-8 py-3 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 text-white font-semibold shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.8)] transition'
           >
-            View All Projects 
-          </a>
+            View All Projects
+          </Link>
         </div>
       </section>
       <Contact />

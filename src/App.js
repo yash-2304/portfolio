@@ -3,16 +3,34 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Projects from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
 import { Analytics } from "@vercel/analytics/react";
+import AiMonk from "./components/AiMonk";
+
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    // remove hash if any (prevents browser jumping)
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+
+    // FORCE scroll immediately before paint
     window.scrollTo(0, 0);
+
+    // force again after render
+    const timeout = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+
+    return () => clearTimeout(timeout);
   }, [pathname]);
 
   return null;
@@ -29,26 +47,6 @@ export default function App() {
 
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
-  }, []);
-
-  useEffect(() => {
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    // Force scroll to top on reload + initial mount
-    window.scrollTo(0, 0);
-
-    // Also handle hard reload timing issues
-    const handleLoad = () => {
-      window.scrollTo(0, 0);
-    };
-
-    window.addEventListener("load", handleLoad);
-
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    };
   }, []);
 
   const crtStyle = {
@@ -109,6 +107,7 @@ export default function App() {
           </Route>
         </Routes>
       </div>
+      <AiMonk />
       <Analytics />
     </>
   );

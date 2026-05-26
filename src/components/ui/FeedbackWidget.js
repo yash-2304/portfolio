@@ -8,7 +8,7 @@ export default function FeedbackWidget() {
       {/* Floating Button */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 bg-blue-500/30 hover:bg-blue-500/50 text-white px-5 py-3 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] border border-blue-400/40 backdrop-blur-md transition z-50"
+        className="fixed bottom-6 left-6 bg-blue-500/30 hover:bg-blue-500/50 text-white px-5 py-3 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] border border-blue-400/40 backdrop-blur-md transition z-50"
       >
         Feedback
       </button>

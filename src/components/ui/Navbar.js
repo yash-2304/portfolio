@@ -94,6 +94,7 @@ export default function Navbar() {
               <NavLink
                 key={label}
                 to={path}
+                end={path === "/"}
                 ref={(el) => (linksRef.current[i] = el)}
                 onMouseEnter={handleHover}
                 className={({ isActive }) =>
