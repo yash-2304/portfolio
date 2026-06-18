@@ -432,7 +432,12 @@ export default function Projects() {
                       {/* Tech Icons */}
                       <div className="flex justify-center gap-2 mt-3">
                         {project.tags.slice(0,3).map(tag => (
-                          <img key={tag} src={techIcons[tag]} className="w-6 h-6 p-1 bg-white/10 rounded-md border border-white/20" />
+                          <img
+                            key={tag}
+                            src={techIcons[tag]}
+                            alt={tag}
+                            className="w-6 h-6 p-1 bg-white/10 rounded-md border border-white/20"
+                          />
                         ))}
                       </div>
 
