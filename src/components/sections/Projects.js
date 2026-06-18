@@ -4,6 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ------------------- PROJECT DATA ------------------- */
 const projects = [
   {
+    title: "Food Intelligence",
+    description: "AI-powered food analysis platform that evaluates meals, extracts nutritional insights, and provides intelligent breakdowns using computer vision and LLM pipelines.",
+    features: [
+      "Food image recognition using AI",
+      "Nutritional analysis and breakdown",
+      "LLM-powered insights generation",
+      "Real-time food classification",
+      "Modern responsive UI deployed on Vercel"
+    ],
+    tags: ["React", "JavaScript", "AI"],
+    url: "https://food-intelligence-one.vercel.app/"
+  },
+  {
     title: "Algorithm Gauntlet",
     description: "Interactive platform to practice and visualize algorithms with real-time feedback, challenges, and performance insights for mastering problem-solving skills.",
     features: [

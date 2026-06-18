@@ -13,6 +13,14 @@ export default function Home() {
   const [isInView, setIsInView] = useState(false);
   const projects = [
     {
+      title: "Food Intelligence",
+      desc: "AI-powered food analysis platform that evaluates meals, extracts nutritional insights, and provides intelligent breakdowns using computer vision and LLM pipelines.",
+      note: "Note: Demo may take a few seconds to load due to Vercel free tier cold starts.",
+      github: "",
+      embed: "https://food-intelligence-one.vercel.app/",
+      label: "food-intelligence"
+    },
+    {
       title: "Algorithm Gauntlet",
       desc: "Interactive platform to practice and visualize algorithms with real-time feedback, challenges, and performance insights for mastering problem-solving skills.",
       note: "Note: Demo may take a few seconds to load due to Vercel free tier cold starts.",
