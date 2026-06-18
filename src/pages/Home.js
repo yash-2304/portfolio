@@ -114,13 +114,35 @@ export default function Home() {
               {projects[index].title}
             </h3>
 
+            {projects[index].label === "food-intelligence" && (
+              <div className="flex gap-2 mb-3 flex-wrap">
+                {["React", "AI", "Computer Vision", "LLM"].map((tag) => (
+                  <span key={tag} className="text-xs px-2 py-1 bg-white/10 rounded-md text-white/70">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
             <p className="text-white/60 mb-4">
               {projects[index].desc}
             </p>
 
-            <p className="text-xs text-white/40 mb-4">
+            {projects[index].label === "food-intelligence" && (
+              <p className="text-white/50 text-sm mb-4">
+                System designed to analyze food images, extract nutritional data, and generate intelligent insights using computer vision and LLM pipelines.
+              </p>
+            )}
+
+            <p className="text-xs text-white/40 mb-2">
               {projects[index].note}
             </p>
+
+            {projects[index].label === "food-intelligence" && (
+              <p className="text-xs text-blue-300/80 mb-4">
+                Tip: For full camera & lens features, tap the ⛶ fullscreen button.
+              </p>
+            )}
 
             <a
               href={projects[index].github}
@@ -160,10 +182,22 @@ export default function Home() {
                     className="w-full max-w-[1024px] h-[60vh] md:h-[600px] bg-black rounded-b-2xl"
                   />
                 ) : (
-                  <div className="w-full max-w-[1024px] h-[60vh] md:h-[600px] bg-black/30 rounded-b-2xl flex items-center justify-center text-white/50">
-                    Loading preview…
+                  <div className="w-full max-w-[1024px] h-[60vh] md:h-[600px] bg-black/30 rounded-b-2xl flex flex-col items-center justify-center text-white/50">
+                    <div className="animate-spin mb-3 w-6 h-6 border-2 border-blue-400 border-t-transparent rounded-full"></div>
+                    <span className="animate-pulse">Waking up preview…</span>
                   </div>
                 )}
+              </div>
+
+              <div className="flex justify-center mt-4">
+                <a
+                  href={projects[index].embed}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-5 py-2 rounded-lg bg-blue-500/20 border border-blue-400/40 text-blue-300 hover:bg-blue-500/30 transition"
+                >
+                  Open Full Experience →
+                </a>
               </div>
             </div>
           </div>
