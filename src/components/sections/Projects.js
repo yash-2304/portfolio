@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ------------------- PROJECT DATA ------------------- */
@@ -283,64 +283,229 @@ function ProjectModal({ project, onClose }) {
 /* ------------------- MAIN PROJECTS GRID ------------------- */
 export default function Projects() {
   const [selected, setSelected] = useState(null);
+  const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  const next = () => setIndex((i) => (i + 1) % projects.length);
+  const prev = () => setIndex((i) => (i - 1 + projects.length) % projects.length);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+
+    const deltaX = Math.abs(e.touches[0].clientX - touchStartX.current);
+    const deltaY = Math.abs(e.touches[0].clientY - touchStartY.current);
+
+    if (deltaX > deltaY) {
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        next();
+      } else {
+        prev();
+      }
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
 
   return (
-    <section className="w-full py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="w-full min-h-screen py-20 bg-gradient-to-br from-[#0b1220] via-[#0f1b2d] to-[#0b1220] text-white overflow-x-hidden flex justify-center items-center px-4">
+      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-10 flex flex-col items-center justify-center">
 
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl md:text-5xl font-semibold mb-12 drop-shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+          className="text-5xl md:text-6xl font-bold mb-16 text-center mx-auto drop-shadow-[0_0_15px_rgba(59,130,246,0.4)]"
         >
           Projects
         </motion.h2>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              className="relative p-6 rounded-2xl backdrop-blur-2xl bg-white/5 border border-white/20 
-              cursor-pointer shadow-[0_0_25px_rgba(255,255,255,0.08)]
-              hover:shadow-[0_0_45px_rgba(99,102,241,0.8)] transition-all duration-700"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              onClick={() => setSelected(project)}
-              onMouseMove={(e) => {
-                const card = e.currentTarget;
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                card.style.transform = `rotateX(${(-y / 20)}deg) rotateY(${x / 20}deg) scale(1.04)`;
-              }}
-              onMouseLeave={(e) => {
-                const card = e.currentTarget;
-                card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
-              }}
-            >
-              <h3 className="text-xl font-semibold drop-shadow">{project.title}</h3>
-              <p className="mt-3 text-gray-300 text-sm">
-                {project.description.slice(0, 100)}...
-              </p>
+        {/* Coverflow Carousel */}
+        <div className="w-full mb-16 flex flex-col items-center justify-center text-center px-2">
 
-              <div className="flex flex-wrap gap-2 mt-5">
-                {project.tags.map((tag) => (
-                  <img
-                    key={tag}
-                    src={techIcons[tag]}
-                    alt={tag}
-                    className="w-8 h-8 p-1 bg-white/10 rounded-md border border-white/20"
-                  />
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <div
+            className="relative flex items-center justify-center w-full max-w-[1200px] mx-auto touch-pan-x"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{ touchAction: 'pan-x' }}
+          >
+         {!isMobile && (
+  <button
+    onClick={prev}
+    className="absolute left-[-6px] md:left-0 z-[100] w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
+  >
+    ←
+  </button>
+)}
+
+            <div className="relative w-full max-w-[1100px] h-[520px] md:h-[620px] flex items-center justify-center overflow-visible mx-auto">
+              {projects.map((project, i) => {
+                let offset = i - index;
+
+                // wrap around
+                if (offset < -Math.floor(projects.length / 2)) offset += projects.length;
+                if (offset > Math.floor(projects.length / 2)) offset -= projects.length;
+
+                // Only render nearby cards for animation
+                if (isMobile) {
+                  if (Math.abs(offset) > 1) return null;
+                } else {
+                  if (Math.abs(offset) > 2) return null;
+                }
+
+                const isActive = offset === 0;
+
+                const style = isMobile
+                  ? {
+                      transform: `translateX(${offset * 40}px) scale(${isActive ? 1 : 0.9})`,
+                      opacity: isActive ? 1 : 0,
+                      boxShadow: isActive ? '0 0 60px rgba(59,130,246,0.4)' : 'none',
+                      zIndex: isActive ? 30 : 10,
+                      transition: 'all 0.45s cubic-bezier(0.22, 1, 0.36, 1)'
+                    }
+                  : {
+                      transform: `perspective(1400px) translateX(${offset * 320}px) scale(${isActive ? 1.15 : 0.75}) rotateY(${offset * -35}deg)`,
+                      opacity: isActive ? 1 : 0.35,
+                      boxShadow: isActive ? '0 0 60px rgba(59,130,246,0.4)' : 'none',
+                      zIndex: isActive ? 30 : 10,
+                      filter: isActive ? 'none' : 'blur(2px)',
+                      transition: 'all 0.5s ease'
+                    };
+
+                return (
+                  <motion.div
+                    key={i}
+                    style={style}
+                    initial={isMobile ? { opacity: 0, scale: 0.9, x: 80 } : false}
+                    animate={isMobile ? {
+                      opacity: isActive ? 1 : 0,
+                      scale: isActive ? 1 : 0.9,
+                      x: offset * 40
+                    } : {}}
+                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                    onClick={() => setIndex(i)}
+                    className="absolute w-[90vw] max-w-[360px] h-[480px] bg-white/5 border border-blue-400/30 rounded-2xl p-6 cursor-pointer flex flex-col justify-between backdrop-blur-2xl shadow-[0_0_60px_rgba(59,130,246,0.25)]"
+                  >
+                    <div className="flex flex-col h-full justify-between">
+                      {/* Center Icon */}
+                      <div className="flex justify-center items-center mt-4 mb-3">
+                        <div className="w-12 h-12 border border-blue-400/40 rounded-xl flex items-center justify-center">
+                          <img src={techIcons[project.tags[0]]} alt="main" className="w-6 h-6" />
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl font-semibold text-white text-center">
+                        {project.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-sm text-gray-400 text-center mt-2 line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Icons */}
+                      <div className="flex justify-center gap-2 mt-3">
+                        {project.tags.slice(0,3).map(tag => (
+                          <img key={tag} src={techIcons[tag]} className="w-6 h-6 p-1 bg-white/10 rounded-md border border-white/20" />
+                        ))}
+                      </div>
+
+                      {/* Features */}
+                      {isActive && (
+                        <div className="text-xs text-gray-300 mt-3 space-y-1">
+                          {project.features.slice(0,2).map((f,i)=>(
+                            <div key={i}>• {f}</div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Buttons */}
+                      {isActive && (
+                        <div className="mt-4 flex gap-2 justify-center">
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-xs px-3 py-2 rounded-lg bg-blue-500/80 hover:bg-blue-400 text-white font-medium"
+                          >
+                            {project.url.includes("github.com") ? "View Code" : "Live Demo"}
+                          </a>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelected(project);
+                            }}
+                            className="text-xs px-3 py-2 rounded-lg border border-white/20 hover:bg-white/10"
+                          >
+                            Details
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+         {!isMobile && (
+  <button
+    onClick={next}
+    className="absolute right-[-6px] md:right-0 z-[100] w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
+  >
+    →
+  </button>
+)}
+          </div>
+
+          <p className="text-sm text-gray-400 mt-4">
+            {isMobile
+              ? "Swipe left or right to navigate"
+              : "Use ← → to navigate • Click card to focus"}
+          </p>
+          <div className="mt-6 grid grid-cols-3 gap-x-6 gap-y-3 max-w-4xl mx-auto px-6 py-6 text-center border border-white/10 rounded-2xl bg-white/[0.02] backdrop-blur-sm">
+            {projects.map((project, i) => (
+              <button
+                key={project.title}
+                onClick={() => setIndex(i)}
+                className={`text-sm transition-colors ${
+                  i === index
+                    ? 'text-blue-300'
+                    : 'text-gray-500 hover:text-gray-300'
+                }`}
+              >
+                {project.title}
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* Grid */}
       </div>
 
       {/* MODAL */}
